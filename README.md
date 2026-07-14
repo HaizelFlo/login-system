@@ -44,9 +44,52 @@ Antes de instalar el proyecto es necesario tener:
 - Node.js y npm.
 - Git.
 
-## Instalación
+## Instalación 
 
 ### 1. Clonar el repositorio
 
-```bash
 git clone https://github.com/HaizelFlo/login-system.git
+cd login-system
+
+composer install
+
+npm install
+
+### 2. Configurar .env
+
+cp .env.example .env
+
+php artisan key:generate
+
+### 3. Base de datos
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=login_system
+DB_USERNAME=root
+DB_PASSWORD=
+
+### 4. Ejecutar migraciones
+
+php artisan migrate --seed
+
+### 5. Compilar assets
+
+npm run build
+
+### 6. Ejecutar Laravel
+
+php artisan serve
+
+### 7. Abrir el navegador
+
+http://127.0.0.1:8000
+
+### 8. Usuario de Prueba
+
+Correo:
+admin@test.com
+
+Contraseña:
+Admin1234*
